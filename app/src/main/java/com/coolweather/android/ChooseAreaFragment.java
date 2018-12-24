@@ -162,23 +162,33 @@ public class ChooseAreaFragment extends Fragment {
      * 查询选中省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询。
      */
     private void queryCities() {
-        titleText.setText(selectedProvince.getProvinceName());
-        backButton.setVisibility(View.VISIBLE);
-        cityList = DataSupport.where("provinceid = ?", String.valueOf(selectedProvince.getId())).find(City.class);
+        txtTitle.setText(selectedProvince.getProvinceName());
+        btnBack.setVisibility(View.VISIBLE);
+        cityList = DataSupport.where("provinceid = ?", String.valueOf(selectedProvince.getId()))
+                .find(City.class);
         if (cityList.size() > 0) {
-            dataList.clear();
-            for (City city : cityList) {
-                dataList.add(city.getCityName());
+            try {
+                dataList.clear();
+                for (City c : cityList) {
+                    dataList.add(c.getCityName());
+                }
+                adapter.notifyDataSetChanged();
+                listView.setSelection(0);
+                currentLevel = LEVEL_CITY;
+            } catch (NullPointerException e) {
+                String url = getResources().getString(R.string.url_query_province);
+                queryFromServer(url, "province");
+                int provinceCode = selectedProvince.getProvinceCode();
+                url = getResources().getString(R.string.url_query_province) + provinceCode;
+                queryFromServer(url, "city");
             }
-            adapter.notifyDataSetChanged();
-            listView.setSelection(0);
-            currentLevel = LEVEL_CITY;
         } else {
             int provinceCode = selectedProvince.getProvinceCode();
-            String address = "http://guolin.tech/api/china/" + provinceCode;
-            queryFromServer(address, "city");
+            String url = getResources().getString(R.string.url_query_province) + provinceCode;
+            queryFromServer(url, "city");
         }
     }
+
 
     /**
      * 查询选中市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询。
