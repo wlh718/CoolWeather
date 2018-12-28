@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="18sp"
-                    android:text="感谢使用"
+                    android:text="用途"
                     android:textColor="@color/about_title"/>
             </LinearLayout>
             <TextView
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="18sp"
-                    android:text="目标"
+                    android:text="我有话说"
                     android:textColor="@color/about_title"/>
             </LinearLayout>
             <TextView

@@ -3,7 +3,7 @@
     <string name="close_nav">关闭侧滑栏</string>
     <string name="open_nav">打开侧滑栏</string>
     <string name="app_thanks">安卓实训</string>
-    <string name="app_aoubt_me">如果您喜欢，请给个好评。</string>
+    <string name="app_aoubt_me">如果您喜欢，请给个好评。可以去GitHub下载原码，地址：https://github.com/wlh718/CoolWeather.git。</string>
     <!--<string name="open_source_jiukantianqi">• 就看天气界面支持</string>-->
     <string name="open_source_hefeng">• 和风天气数据支持</string>
 </resources>

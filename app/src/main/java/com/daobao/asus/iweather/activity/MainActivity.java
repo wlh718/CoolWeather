@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbar_layout.setTitle(cityName);
             }
         });
-        toolbar_layout.setTitle(MySharedpreference.preferences.getString("City","成都"));
+        toolbar_layout.setTitle(MySharedpreference.preferences.getString("City","南宁"));
         mMultiCityFragment = new MultiCityFragment();
         fragments.add(mMainFragment);
         fragments.add(mMultiCityFragment);
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         int MultiCityNum = MySharedpreference.preferences.getInt("MultiCityNum",0);
         //获取主页城市
-        String mainCity = MySharedpreference.preferences.getString("City","成都");
+        String mainCity = MySharedpreference.preferences.getString("City","南宁");
         if(MultiCityNum>=3)
         {
             Toast.makeText(MainActivity.this,"多城市数量不能超过3个",Toast.LENGTH_SHORT).show();

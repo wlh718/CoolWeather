@@ -167,7 +167,7 @@ public class MainFragment extends Fragment {
                     }
                     else
                     {
-                        CurrentCityName = "成都";
+                        CurrentCityName = "南宁";
                         editor.putString("City",CurrentCityName);
                         editor.commit();
                     }
@@ -189,7 +189,7 @@ public class MainFragment extends Fragment {
             ButterKnife.bind(this, view);
             initView();
             editor = MySharedpreference.getInstance(getContext());
-            CurrentCityName = MySharedpreference.preferences.getString("City","成都");
+            CurrentCityName = MySharedpreference.preferences.getString("City","南宁");
             if(JugeData())
             {
                 //保存数据是今天则需要取出保存的数据
@@ -250,7 +250,7 @@ public class MainFragment extends Fragment {
 
     private void initAirInfo(final int msg)
     {
-        CurrentCityName = MySharedpreference.preferences.getString("City","成都");
+        CurrentCityName = MySharedpreference.preferences.getString("City","南宁");
         RestClient.builder()
                 .url("https://free-api.heweather.com/s6/air/now?parameters")
                 .params("location",CurrentCityName)
